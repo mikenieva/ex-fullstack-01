@@ -18,10 +18,25 @@ const data = [
 ];
 
 // 3. RUTAS
+// GET - OBTENCIÓN DE DATOS (RESERVACIONES)
 // localhost:3005/
 app.get("/", (req, res) => {
   res.json({
     msg: "Este es un mensaje",
+    data: data,
+  });
+});
+
+// POST - CREAR UNA RESERVACIÓN
+app.post("/", (req, res) => {
+  data.push({
+    id: 2,
+    title: "Reservación 2",
+    description: "Quiero una reservación a Sidney, Australia",
+  });
+
+  res.json({
+    msg: "Reservación agregada",
     data: data,
   });
 });
