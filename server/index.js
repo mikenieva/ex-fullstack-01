@@ -6,8 +6,9 @@ import cors from "cors";
 const app = express();
 
 app.use(cors());
+app.use(express.json());
 
-const data = [
+let data = [
   {
     id: 0,
     title: "reservación 1",
@@ -32,10 +33,13 @@ app.get("/", (req, res) => {
 
 // POST - CREAR UNA RESERVACIÓN
 app.post("/", (req, res) => {
+  console.log("req", req.body);
+
+  const { title, description } = req.body;
+
   data.push({
-    id: 2,
-    title: "Reservación 2",
-    description: "Quiero una reservación a Sidney, Australia",
+    title,
+    description,
   });
 
   res.json({
