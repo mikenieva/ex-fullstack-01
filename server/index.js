@@ -1,8 +1,11 @@
 // 1. IMPORTACIONES
 import express from "express";
+import cors from "cors";
 
 // 2. INICIALIZADORES
 const app = express();
+
+app.use(cors());
 
 const data = [
   {
